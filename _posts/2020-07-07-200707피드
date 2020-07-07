@@ -1,0 +1,16 @@
+원격저장소 연결하는 방법
+1. git clone 주소
+2. cd clone폴더이름
+3. git pull
+4. git branch 브랜치이름
+5. git checkout 브랜치이름
+6. git add 파일
+7. git commit -m "버전이름"
+8. git push
+------------------------------
+merge하고 master로 해야 함.
+9. git checkout master
+
+
+flutter 프로젝트 생성과정 중 SDK연결
+: flutter 폴더를 선택하면 된다.
