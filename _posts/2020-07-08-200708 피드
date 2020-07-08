@@ -1,0 +1,222 @@
+코딩셰프 강의를 들으면서 정리한 부분들.
+
+기본적인 구조
+MyApp -> MaterialApp -> MyHomePage -> Scaffold -> AppBar, bod
+
+class MyApp extends StatelessWidget{
+	@override
+	Widget build(BuildContext context) {
+		return MaterialApp(
+			debugShowCheckedModeBanner : false, // 오른쪽 상단 디버그 배너 삭제
+			title : ‘타이틀 이름’,
+			theme : ‘테마 속성’,
+		home : MyHomePage(),
+		);
+	}
+}
+class MyHomePage extends StatelessWidget{
+	@override
+	Widget build(BuildContext context) {
+		return Scaffold(
+			backgroundColor : 색,
+			appBar : AppBar(
+				title : ‘타이틀에 들어갈 내용’,
+				backgroundColor : 색,
+				elevation : N, // 붕 뜨는 것을 조절
+				centerTitle : true, // 앱파 타이틀을 가운데 설정
+				leading : IconButton(
+					icon : Icon(Icons.아이콘),
+					onPressed : () {
+						동작
+					},
+				),
+				actions : <Widget>[
+					IconButton(
+						icon : Icon(Icons.아이콘),
+						onPressed : () {
+							동작
+						},
+					),
+					IconButton(
+						icon : Icon(Icons.아이콘),
+						onPressed : () {
+							동작
+						},
+					),
+				],
+			),
+			body : 구현되는 내용
+			drawer : Drawer(
+				child : ListView(
+					padding : EdgeInsets.zero,
+					children : <Widget> [
+						UserAccountsDrawerHeader(
+							currentAcoountPicture : CircleAvart(
+								backgroundImage : AssetImage(‘경로’),
+								backgroundColor : 색,
+							),
+							accountEmail : 이메일
+							accountName : 이름
+							onDeatailsPressed : () {
+								동작
+							},
+							decoration : BoxDecoration(
+								color : 색,
+								borderRadius : BorderRadius.only(									bottomLeft : Radius.circular(N),
+									bottomRight : Radius.circular(N),
+								),
+							),
+						),
+						ListTile(
+							leading : Icon(
+								Icons.아이콘,
+								color : 색,
+							),
+							title : Text(
+								‘글’
+								style : TextStyle(
+									fontWeight : FontWeight.bold,
+									fontSize : N
+								),
+							),
+							onTap : () {
+								동작
+							},
+							trailing : Icon(Icons.아이콘)
+						),		
+					],
+				),
+			),
+		);
+	}
+}
+
+ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+
+Center(
+	childe : Column(
+		mainAxixAlignment : MainAxisAlignment.center
+		children : <Widget>[
+			Text(‘’)
+			Text(‘’)
+			Text(‘’)
+	),
+)
+
+Padding(
+	padding : EdgeInsets.fromLTRB(우, 상, 좌, 하),
+	child : Column(
+		crossAxisAlignment : CrossAxisAlignment.start,
+		children : <Widget>[
+			Center(
+				child : CircleAvatar(
+					backgroundImage : AssetImage(‘경로’),
+					radius : N,
+					backgroundColor : 색,
+				),
+			),
+			Divider( // 구분선
+				height : N,
+				color : 색
+				thickness : N // 선의 두께
+				endIndent : N // 끝에서 얼마까지 해야 하는지
+			),
+			Text( 
+				‘텍스트’,
+				style : TextStyle(
+					color : 색
+					letterSpacing : N // 글자 간격
+					backgroundColor : 색
+			),
+			SizedBox(
+				height : N,
+				width : N,
+			Row(
+				children : <Widget> [
+					Icon(Icons.아이콘),
+					SizeBox(
+						height : N,
+						width : N,
+					),
+				],
+			),
+
+		],
+	),
+)
+
+Builder(
+	builder : (BuilderContext cox) {
+		return Center(
+			child : FlatButton(
+				child : Text(
+					‘show me’,
+					style : TextStyle(color : 색),
+				),
+				color : 버튼 색
+				onPressed : () {
+					Scaffold.of(ctx).showSnackBar(
+						SnackBar(
+							content : Text(
+								‘Pushed the button’
+								style : TextStyle( 
+									fontSize : 20,
+								),
+							),
+						),
+					),
+				}.
+			),
+		),
+	},
+)
+SafeArea(
+	child : Container(
+		color : 색
+		child : Center(
+			child : Text(‘글’)
+		),
+		width : N
+		heigh : N
+		margin : EdgeInsets.symmetric(
+			vertical : N // 세로축
+			horizontal : N // 가로축
+		),
+	),
+),
+
+onPressed : () {
+	Navigator.push(
+		context2,
+		MaterialPageRoute(
+			builder : (context) => SecondPage()
+		),
+	),
+}
+Class SecondPage extends StatelessWidget {
+	@override
+	Widget build(BuildContext cox) {
+		return Scaffold(
+			appBar : AppBar(
+				title : Text(’Second page’),
+				centerTitle : true,
+				elevation : N,
+			),
+			body : Center(
+				child : RaisedButton(
+					child : Text(‘글’), 
+					onPressed : () {
+						Navigator.pop(cox);
+					}
+				),
+			),
+		),
+	},
+}
+ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+
+Flutter 명령어 정리
+
+	⁃	theme : ThemeData(primarySwatch : Colors.green) // MaterialApp에 사용한다.
+	⁃	Center : 가로축으로 정중앙
+	⁃	mainAxixAlignment : MainAxisAlignment.center : 세로축으로 정중앙
